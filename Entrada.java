@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 /**
  * Una entrada en nuestro muro.
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
  * se registra el autor y la fecha de publicacion.
  * 
  * @author DAM-2017/2018
- * @version 2018/04/20
+ * @version 2018/04/25
  */
 public class Entrada
 {
@@ -35,7 +36,6 @@ public class Entrada
         cantidadMeGusta = 0;
     }
     
-        
     /**
      * Anade un 'me gusta' a la entrada.
      */
@@ -69,6 +69,37 @@ public class Entrada
     public int getCantidadMeGusta()
     {
         return cantidadMeGusta;
+    }
+    
+    public void mostrar()
+    {
+        // no tienes poder aqui. Nada que hacer aqui.
+    }
+    
+    /**
+     * Devuelve la informacion sobre la entrada como una cadena.
+     * @return Devuelve la informacion sobre la entrada como una cadena.
+     */
+    @Override
+    public String toString(){
+        String aDevolver = "";
+        aDevolver += "Usuario: " + usuario + "\n";
+        aDevolver += "Likes: " + cantidadMeGusta + "\n";        
+        
+        // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
+        long numeroSegundos = momentoPublicacion.until(LocalDateTime.now(),ChronoUnit.SECONDS);
+        aDevolver += "Escrito hace ";
+        
+        // Comprobamos si debemos expresar el tiempo en segundos o minutos.
+        if(numeroSegundos > 59){
+            aDevolver += numeroSegundos / 60 + " minutos";
+        }
+        else {
+            aDevolver += numeroSegundos + " segundos";
+        }
+        aDevolver += "\n";
+
+        return aDevolver;
     }
     
 }

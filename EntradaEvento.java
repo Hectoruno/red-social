@@ -49,23 +49,24 @@ public class EntradaEvento extends Entrada
     public String toString()
     {
         String aDevolver = "";
-        aDevolver += "Usuario: " + getUsuario() + "\n";
-        aDevolver += "Likes: " + getCantidadMeGusta() + "\n";        
+
         aDevolver += mensajeEvento + "\n";
-        
-        // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
-        long numeroSegundos = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        aDevolver += "Escrito hace ";
-        
-        // Comprobamos si debemos expresar el tiempo en segundos o minutos.
-        if(numeroSegundos > 59){
-            aDevolver += numeroSegundos / 60 + " minutos";
-        }
-        else {
-            aDevolver += numeroSegundos + " segundos";
-        }
-        aDevolver += "\n";
+        aDevolver += super.toString();           
         
         return aDevolver;
     }
+    
+    /**
+     * Imprime por pantalla toda la informacion de la entrada.
+     */
+    @Override
+    public void mostrar()
+    {
+        System.out.println(this);    
+    }
+    
+    /**
+     * Devuelve la informacion sobre la entrada como una cadena.
+     * @return Devuelve la informacion sobre la entrada como una cadena.
+     */
 }

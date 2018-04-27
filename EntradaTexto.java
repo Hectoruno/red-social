@@ -11,7 +11,7 @@ import java.time.temporal.ChronoUnit;
  * Las entradas con imagenes se crean a partir de un autor y un contenido.
  * 
  * @author DAM-2017/2018
- * @version 2018/04/20
+ * @version 2018/04/25
  */
 
 public class EntradaTexto extends EntradaConComentarios
@@ -50,36 +50,19 @@ public class EntradaTexto extends EntradaConComentarios
     public String toString()
     {
         String aDevolver = "";
-        aDevolver += "Usuario: " + getUsuario() + "\n";
-        aDevolver += "Likes: " + getCantidadMeGusta() + "\n";        
-        aDevolver += mensaje + "\n";
         
-        // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
-        long numeroSegundos = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        aDevolver += "Escrito hace ";
-        
-        // Comprobamos si debemos expresar el tiempo en segundos o minutos.
-        if(numeroSegundos > 59){
-            aDevolver += numeroSegundos / 60 + " minutos";
-        }
-        else {
-            aDevolver += numeroSegundos + " segundos";
-        }
-        aDevolver += "\n";
-        
-        // Comprobamos si hay comentarios. 
-        // Si hay los mostramos, si no, mostramos un mensaje indicandolo.
-        if (getComentarios().size() == 0) {
-            aDevolver += "No hay comentarios\n";
-        }
-        else {
-            aDevolver += "Comentarios: \n";
-            for(String comentarioActual : getComentarios()){
-                aDevolver += comentarioActual + "\n";
-            }
-        }
-        
+       aDevolver += mensaje + "\n";
+       aDevolver += super.toString();
         
         return aDevolver;
+    }
+    
+    /**
+     * Imprime por pantalla toda la informacion de la entrada.
+     */
+    @Override
+    public void mostrar()
+    {
+        System.out.println(this);    
     }
 }
