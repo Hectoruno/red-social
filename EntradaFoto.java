@@ -79,5 +79,12 @@ public class EntradaFoto extends EntradaConComentarios
         System.out.println(this);    
     }
     
+    /**
+     * 
+     */
+    public void mostrarDatosExclusivos()
+    {
+        System.out.println("Url: " + urlImagen + "\nTitulo: " + titulo + "\n");
+    }
 
 }

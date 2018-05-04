@@ -65,4 +65,12 @@ public class EntradaTexto extends EntradaConComentarios
     {
         System.out.println(this);    
     }
+    
+    /**
+     * 
+     */
+    public void mostrarDatosExclusivos()
+    {
+        System.out.println(mensaje + "\n");
+    }
 }

@@ -69,4 +69,12 @@ public class EntradaEvento extends Entrada
      * Devuelve la informacion sobre la entrada como una cadena.
      * @return Devuelve la informacion sobre la entrada como una cadena.
      */
+    
+    /**
+     * 
+     */
+    public void mostrarDatosExclusivos()
+    {
+        System.out.println(mensajeEvento);
+    }
 }
